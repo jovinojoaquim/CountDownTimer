@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CountDownTimer.MainPage"
+             BackgroundColor="CornflowerBlue"
+             >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="tempo">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Margin="10">
+        <!-- Place new controls here -->
+        <Entry x:Name="etNomeDoEvento" Placeholder="Nome do Evento" PlaceholderColor="White" TextColor="White" BackgroundColor="#7CA5F0"/>
+        <DatePicker x:Name="dtData" Format="D" TextColor="White" FontAttributes="Bold" />
+        
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Selecionar horário" VerticalOptions="Center" TextColor="White" FontAttributes="Bold"/>
+            <Switch x:Name="SelecionarHorario" HeightRequest="40" HorizontalOptions="EndAndExpand" Toggled="OnSelecionarHorario" IsToggled="True" ThumbColor="White"/>
+        </StackLayout>
+        <TimePicker x:Name="tmHora" IsEnabled="True" Visual="Material" TextColor="White" FontAttributes="Bold"/>
+        <Button Text="Iniciar Contagem" Clicked="OnIniciarContagem" BackgroundColor="White" FontAttributes="Bold" CornerRadius="10"/>
+
+
+        <Grid VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="lbDia" Text="0" Grid.Column="0" Grid.Row="0" Style="{StaticResource tempo}"/>
+            <Label Text="Dias" Grid.Column="0" Grid.Row="1" Style="{StaticResource tempo}"/>
+
+            <Label x:Name="lbHora" Text="00" Grid.Column="1" Grid.Row="0" Style="{StaticResource tempo}"/>
+            <Label Text="Horas" Grid.Column="1" Grid.Row="1" Style="{StaticResource tempo}"/>
+
+            <Label x:Name="lbMinuto" Text="00" Grid.Column="2" Grid.Row="0" Style="{StaticResource tempo}"/>
+            <Label Text="Minutos" Grid.Column="2" Grid.Row="1" Style="{StaticResource tempo}"/>
+
+            <Label x:Name="lbSegundos" Text="00" Grid.Column="3" Grid.Row="0" Style="{StaticResource tempo}"/>
+            <Label Text="Segundos" Grid.Column="3" Grid.Row="1" Style="{StaticResource tempo}"/>
+
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
